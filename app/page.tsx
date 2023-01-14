@@ -1,9 +1,11 @@
 import React from 'react'
-console.log(process.env.APP_API_BASE)
+const API_URL = process.env.APP_API_BASE
+
 function page() {
   return (
     <div>
       <div>page</div>
+      <div>API URL {API_URL}</div>
     </div>
   )
 }
