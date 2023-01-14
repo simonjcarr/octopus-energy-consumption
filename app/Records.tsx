@@ -14,18 +14,26 @@ type Props = {
 function Records(props: Props) {
   return (
     <>
-      {props.totalCost.reverse().map((record) => (
-        <div key={record.interval_start} className='p-3 bg-pink-500 border-2 border-pink-600 mb-2 text-pink-200 rounded-md font-semibold'>
-          <div className='flex space-x-5'>
-            <div>Start: {DateTime.fromISO(record.interval_start).toFormat('HH:mm')} Hrs</div>
-            <div>End: {DateTime.fromISO(record.interval_end).toFormat('HH:mm')} Hrs</div>
-          </div>
-          <p>Consumption: {record.consumption} Kwh</p>
-          <p>Cost: £{record.cost.toFixed(2)}</p>
-          <p className={`${record.offPeak ? 'bg-green-700 border-green-800' : 'bg-gray-600 border-gray-700'} text-white text-xs p-1 font-semibold rounded-lg border-2 inline-block`}>{record.offPeak ? 'Off Peak' : 'On Peak'}</p>
-        </div>
-
-      ))}
+    <div className='border-2 border-pink-500 rounded-md w-1/2'>
+      <table width="100%">
+        <tr>
+          <th className='p-2' align='left'>Start</th>
+          <th align='left'>End</th>
+          <th align='left'>Kwh</th>
+          <th align='left'>Cost</th>
+          <th align='left'>Tarrif</th>
+        </tr>
+        {props.totalCost.reverse().map((record) => (
+          <tr>
+            <td className='px-2'>{DateTime.fromISO(record.interval_start).toFormat('HH:mm')}</td>
+            <td>{DateTime.fromISO(record.interval_end).toFormat('HH:mm')}</td>
+            <td>{record.consumption}</td>
+            <td>{record.cost.toFixed(2)}</td>
+            <td>{record.offPeak?'Off Peak':'On Peak'}</td>
+          </tr>
+        ))}
+      </table>
+    </div>
     </>
   )
 }
