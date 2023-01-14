@@ -15,7 +15,7 @@ type PageProps = {
 }
 
 async function DailyConsumption({params: { dayOffset } }: PageProps) {
-  const res = await fetch(`http://localhost:3000/api/consumption/day/${dayOffset}`)
+  const res = await fetch(`${process.env.APP_API_BASE}/consumption/day/${dayOffset}`)
   const resultData = await res.json()
   
   const totalCost: CostData[] = resultData.result
