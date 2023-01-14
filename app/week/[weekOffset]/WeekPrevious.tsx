@@ -9,7 +9,7 @@ type  Props = {
 function DayPrevious(props: Props) {
   return (
     <div>
-      <Link href={`/day/${props.dayOffset}`}>
+      <Link href={`/week/${props.dayOffset}`}>
         <HiArrowSmLeft />
       </Link>
     </div>

@@ -5,9 +5,9 @@ function Header() {
   return (
     <header className="p-5 bg-pink-500 text-sm uppercase">
       <div className='flex space-x-4'>
-        <Link href='/2' className='p-2 bg-pink-800 text-white rounded-lg'>Day</Link>
-        <Link href='/week-to-date' className='p-2  bg-pink-800 text-white rounded-lg'>Week to date</Link>
-        <Link href='/monoth-to-date' className='p-2  bg-pink-800 text-white rounded-lg'>Month to date</Link>
+        <Link href='/day/2' className='p-2 bg-pink-800 text-white rounded-lg'>Day</Link>
+        <Link href='/week/1' className='p-2  bg-pink-800 text-white rounded-lg'>Week</Link>
+        <Link href='/monoth-to-date' className='p-2  bg-pink-800 text-white rounded-lg'>Month</Link>
       </div>
     </header>
   )

@@ -17,15 +17,17 @@ function Records(props: Props) {
     <div className='border-2 border-pink-500 rounded-md w-1/2'>
       <table width="100%">
         <tr>
-          <th className='p-2' align='left'>Start</th>
+          <th align='left' className='p-2'>Date</th>
+          <th align='left'>Start</th>
           <th align='left'>End</th>
           <th align='left'>Kwh</th>
           <th align='left'>Cost</th>
           <th align='left'>Tarrif</th>
         </tr>
-        {props.totalCost.reverse().map((record) => (
+        {props.totalCost.map((record) => (
           <tr>
-            <td className='px-2'>{DateTime.fromISO(record.interval_start).toFormat('HH:mm')}</td>
+            <td className='px-2'>{DateTime.fromISO(record.interval_start).toFormat('dd MMM yy')}</td>
+            <td>{DateTime.fromISO(record.interval_start).toFormat('HH:mm')}</td>
             <td>{DateTime.fromISO(record.interval_end).toFormat('HH:mm')}</td>
             <td>{record.consumption}</td>
             <td>{record.cost.toFixed(2)}</td>
