@@ -14,8 +14,16 @@ type PageProps = {
   }
 }
 
+let APP_BASE_URL: any = ""
+
+if(process.env.VERCEL_URL) {
+  APP_BASE_URL = `https://${process.env.VERCEL_URL}`
+} else {
+  APP_BASE_URL = process.env.APP_API_BASE
+}
+ 
 async function DailyConsumption({params: { dayOffset } }: PageProps) {
-  const res = await fetch(`${process.env.VERCEL_URL || process.env.APP_API_BASE}/api/consumption/day/${dayOffset}`)
+  const res = await fetch(`${APP_BASE_URL}/api/consumption/day/${dayOffset}`)
   const resultData = await res.json()
   
   const totalCost: CostData[] = resultData.result
